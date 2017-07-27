@@ -15,14 +15,16 @@ apply plugin: 'org.springframework.boot'
 sourceSets {
   main{
     java{
-	srcDirs = ['../../../../src/main/java'] 
-	include '**/'+serviceName+'/**/*'   
+		srcDirs = ['../../../../src/main/java'] 
+		include '**/'+serviceName+'/**/*'
+		include '**/common/**/*'   
     }
     resources {
         srcDirs = ['../../../../src/main/resources/'+serviceName]
     }	
   }
 }
+
 
 jar {
     baseName = serviceName
@@ -38,5 +40,13 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    
+    //EVCache 
+    compile('com.netflix.evcache:evcache-client:4.92.0')
    
 }
+
+configurations.all {
+   exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+}
+
