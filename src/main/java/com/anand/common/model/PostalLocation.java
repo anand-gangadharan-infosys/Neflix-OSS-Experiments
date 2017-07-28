@@ -1,5 +1,12 @@
 package com.anand.common.model;
 
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class PostalLocation {
 
 	private String pincode;
@@ -11,7 +18,11 @@ public class PostalLocation {
 	private String district;
 
 	private String state;
-
+	
+	
+	public PostalLocation(){
+		
+	}
 	public PostalLocation(String pincode, String postOfficeName, String taluk, String district, String state) {
 		this.pincode = pincode;
 		this.postOfficeName = postOfficeName;
@@ -19,6 +30,10 @@ public class PostalLocation {
 		this.district = district;
 		this.state = state;
 
+	}
+	
+	public static PostalLocation getObj(String jsonString) throws JsonParseException, JsonMappingException, IOException{
+			return new ObjectMapper().readValue(jsonString, PostalLocation.class);
 	}
 
 	public String getDistrict() {
@@ -59,6 +74,18 @@ public class PostalLocation {
 
 	public void setTaluk(String taluk) {
 		this.taluk = taluk;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		try {
+			return new ObjectMapper().writeValueAsString(this);
+		} catch (JsonProcessingException e) {
+		
+			e.printStackTrace();
+			return "{}";
+		}
 	}
 
 }
