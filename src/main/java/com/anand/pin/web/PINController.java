@@ -1,16 +1,26 @@
 package com.anand.pin.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
+import com.anand.pin.domain.PostOfficeLocationRepsitory;
+import com.anand.pin.domain.PostalLocation;
+
 @RestController
-public class PINController {
+public class PinController {
 
-	@RequestMapping(method = RequestMethod.GET, value = "/pincode")
-	public String getPinLocation(@RequestParam(value = "pin", defaultValue = "000000") String pinCode) {
-		return pinCode;
+	@Autowired
+	private PostOfficeLocationRepsitory poRepo;
+
+	@RequestMapping(method = RequestMethod.GET, value = "/postal/search")
+	public PostalLocation getPinLocation(@RequestParam(value = "pin", defaultValue = "000000") String pinCode) {
+		System.out.println("here"+pinCode);
+		return poRepo.findByPincode(pinCode);
+
 	}
-}
 
+}

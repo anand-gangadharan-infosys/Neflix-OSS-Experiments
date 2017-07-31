@@ -16,7 +16,8 @@ sourceSets {
   main{
     java{
 	srcDirs = ['../../../../src/main/java'] 
-	include '**/'+serviceName+'/**/*'   
+	include '**/'+serviceName+'/**/*'
+	include '**/common/**/*'    
     }
     resources {
         srcDirs = ['../../../../src/main/resources/'+serviceName]
@@ -38,5 +39,12 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    
+     // JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    
+    // Use MySQL Connector-J
+    compile 'mysql:mysql-connector-java'
+    testCompile('org.springframework.boot:spring-boot-starter-test')
    
 }
