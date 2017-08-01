@@ -17,7 +17,8 @@ sourceSets {
     java{
 		srcDirs = ['../../../../src/main/java'] 
 		include '**/'+serviceName+'/**/*'
-		include '**/common/**/*'   
+		include '**/common/**/*' 
+		include '**/pin/client/**/*'   
     }
     resources {
         srcDirs = ['../../../../src/main/resources/'+serviceName]

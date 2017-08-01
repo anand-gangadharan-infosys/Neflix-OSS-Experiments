@@ -31,10 +31,13 @@ public class EVCachePostOffice {
 		evCache = new EVCache.Builder().setAppName("CACHE-POSTCODES").build();
 	}
 
-	public PostalLocation getPostalLocation(String pincode)
-			throws EVCacheException, JsonParseException, JsonMappingException, IOException {
+	public PostalLocation getPostalLocation(String pincode) throws CacheMissException {
 
-		return PostalLocation.getObj(evCache.get(pincode));
+		try {
+			return PostalLocation.getObj(evCache.get(pincode));
+		} catch (IOException | EVCacheException | NullPointerException ex) {
+			throw new CacheMissException();
+		}
 	}
 
 	public void setKey(String key, PostalLocation value, int timeToLive) throws Exception {

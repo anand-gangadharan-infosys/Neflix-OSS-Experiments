@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.anand.pin.domain.PostOfficeLocationRepsitory;
 import com.anand.pin.domain.PostalLocation;
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
 
 @RestController
 public class PinController {
@@ -16,9 +18,9 @@ public class PinController {
 	@Autowired
 	private PostOfficeLocationRepsitory poRepo;
 
-	@RequestMapping(method = RequestMethod.GET, value = "/postal/search")
+	@RequestMapping(method = RequestMethod.GET, value = "/persist/postal/search")
 	public PostalLocation getPinLocation(@RequestParam(value = "pin", defaultValue = "000000") String pinCode) {
-		System.out.println("here"+pinCode);
+		System.out.println("Pincode is "+pinCode);
 		return poRepo.findByPincode(pinCode);
 
 	}
