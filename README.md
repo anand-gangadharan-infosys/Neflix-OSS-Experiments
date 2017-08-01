@@ -15,6 +15,7 @@ The idea is to create three micro service. A client, cache and pin service and r
 
 ## Details
 ---
+Note that I have used gradle to manage each service as a different project in eclipse (STS). You can work in an IDE on one or more of the services and the same scripts can be easliy weaved later to production deployment systems like jenkins 
 
 All service lookups should be handled by Eureka.
 
