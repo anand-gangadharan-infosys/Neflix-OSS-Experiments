@@ -3,8 +3,6 @@ package com.anand.cache.web;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +15,7 @@ import com.anand.pin.client.PinClient;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.netflix.evcache.EVCacheException;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
 public class QuickPinController {
@@ -33,21 +32,34 @@ public class QuickPinController {
 
 		try {
 			PostalLocation location = cacheDataStore.getPostalLocation(pinCode);
-			if(location!= null){
+			if (location != null) {
 				System.out.println("Cache hit");
 			}
 			return location;
 		} catch (CacheMissException e) {
-			System.out.println("Cache miss");
-			PostalLocation location = pinClient.getPinCode(pinCode);
-			if(location!= null){
-				saveToCache(pinCode, location);
-			}
-			return pinClient.getPinCode(pinCode);
+			return fetchFromDB(pinCode);
 
 		}
 
 	}
+	
+	@HystrixCommand(fallbackMethod="fetchDummyPostalLocation")
+	private PostalLocation fetchFromDB(String pinCode) {
+		System.out.println("Cache miss");
+		PostalLocation location = pinClient.getPinCode(pinCode);
+		if (location != null) {
+			saveToCache(pinCode, location);
+		}
+		return pinClient.getPinCode(pinCode);
+	}
+	
+	@SuppressWarnings("unused")
+	private PostalLocation fetchDummyPostalLocation(String pinCode) {
+		PostalLocation loc = new PostalLocation();
+		loc.setPincode(pinCode);
+		return loc;
+	}
+	
 
 	private void saveToCache(String pinCode, PostalLocation location) {
 		try {

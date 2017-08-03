@@ -1,15 +1,10 @@
 package com.anand.cache.domain;
 
 import java.io.IOException;
-import java.util.concurrent.Future;
-
-import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
 
 import com.anand.common.model.PostalLocation;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.netflix.evcache.EVCache;
 import com.netflix.evcache.EVCacheException;
 

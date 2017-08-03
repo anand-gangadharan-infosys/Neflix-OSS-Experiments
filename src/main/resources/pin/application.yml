@@ -1,3 +1,6 @@
-eureka:
-  instance:
-    appname: pin
+#eureka:
+#  instance:
+#    appname: pin
+spring:
+  application:
+    name: pin
