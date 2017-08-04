@@ -40,4 +40,4 @@ restart)
   ;;
 esac
 
-#curl -X PUT http://localhost:8761/eureka/apps/pin/ip-10-155-213-80.eu-west-1.compute.internal%3A8080/status?value=OUT_OF_SERVICE
+#curl -X PUT http://localhost:8761/eureka/apps/pin/ip-10-155-213-74.eu-west-1.compute.internal%3Apin%3A8080/status?value=OUT_OF_SERVICE

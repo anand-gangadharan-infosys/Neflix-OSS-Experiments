@@ -8,11 +8,18 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
 import com.anand.pin.client.PinClient;
 
 @SpringBootApplication
 @EnableEurekaClient
+@EnableCircuitBreaker
+@EnableHystrixDashboard
+@RestController
 public class Application {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
@@ -30,4 +37,8 @@ public class Application {
 	RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
+	@RequestMapping("/monitor")
+ 	public String home() {
+ 		return "forward:/hystrix";
+ 	}
 }

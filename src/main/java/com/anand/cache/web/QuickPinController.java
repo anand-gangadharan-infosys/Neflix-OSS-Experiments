@@ -16,9 +16,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.netflix.evcache.EVCacheException;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
-@EnableCircuitBreaker
 @RestController
 public class QuickPinController {
 
