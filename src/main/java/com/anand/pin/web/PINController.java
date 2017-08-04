@@ -10,7 +10,7 @@ import com.anand.pin.domain.PostOfficeLocationRepsitory;
 import com.anand.pin.domain.PostalLocation;
 
 @RestController
-public class PinController {
+public class PINController {
 
 	@Autowired
 	private PostOfficeLocationRepsitory poRepo;
