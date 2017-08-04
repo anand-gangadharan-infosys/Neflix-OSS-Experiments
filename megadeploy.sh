@@ -13,13 +13,13 @@ function start(){
   java -jar services/com/anand/pin/build/libs/pin-0.1.0.jar>>logs/pin.log 2>>logs/pin.log&
   source infrastructure/ev-deploy-descriptor.sh
   java -jar services/com/anand/cache/build/libs/cache-0.1.0.jar>>logs/cache.log 2>>logs/cache.log&
-  echo 'Service Started'
+  echo 'Service Started'sort
 }
 
 function stop(){
-  kill -9 `lsof -i tcp:8080|sort|uniq|awk {'print $2;'}` 2>>/dev/null
-  kill -9 `lsof -i tcp:8081|sort|uniq|awk {'print $2;'}` 2>>/dev/null
-  kill -9 `lsof -i tcp:8761|sort|uniq|awk {'print $2;'}` 2>>/dev/null
+  kill -9 `lsof -i tcp:8080|awk {'print $2'} | sort -n|uniq` 2>>/dev/null
+  kill -9 `lsof -i tcp:8081|awk {'print $2'} | sort -n|uniq` 2>>/dev/null
+  kill -9 `lsof -i tcp:8761|awk {'print $2'} | sort -n|uniq` 2>>/dev/null
   echo 'Service Stoped'
 }
 
