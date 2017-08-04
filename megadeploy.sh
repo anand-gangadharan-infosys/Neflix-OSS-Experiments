@@ -1,16 +1,18 @@
 #!/bin/bash
 
 function build(){
+  gradle -p infrastructure/eureka clean build
   gradle -p services/com/anand/pin clean build
   gradle -p services/com/anand/cache clean build
 }
 
 function start(){
   build
-  java -jar infrastructure/eureka/build/libs/eureka-0.1.0.jar>>logs/eureka.log &
+  java -jar infrastructure/eureka/build/libs/eureka-0.1.0.jar>>logs/eureka.log 2>>logs/eureka.log &
   sleep 11
-  java -jar services/com/anand/pin/build/libs/pin-0.1.0.jar>>logs/pin.log &
-  java -jar services/com/anand/cache/build/libs/cache-0.1.0.jar>>logs/cache.log &
+  java -jar services/com/anand/pin/build/libs/pin-0.1.0.jar>>logs/pin.log 2>>logs/pin.log&
+  source infrastrucutre/ev-deploy-descriptor.sh
+  java -jar services/com/anand/cache/build/libs/cache-0.1.0.jar>>logs/cache.log 2>>logs/cache.log&
   echo 'Service Started'
 }
 
