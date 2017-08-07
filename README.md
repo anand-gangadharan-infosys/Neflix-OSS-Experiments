@@ -4,9 +4,9 @@
 
 * EVCache
 * Eureka (Along with Histerix and Ribbon)
-* Vector  
+* Spectator 
 
-`java -jar cache.jar`
+You can compile and start all micro services using `./megadeploy.sh`. Each service comes up in different ports. Eureka on 9761, PIN on 8080 and cache on 8081
 
 The idea is to create three micro service. A client, cache and pin service and register them with Eureka registry. The client acts as the web gateway and invokes a search of post office(Indian) details by PIN number. The cache service intercept the call and tries to address the query. In case of a cache miss pin service which is backed by database kicks in.
 
@@ -21,6 +21,6 @@ All service lookups should be handled by Eureka.
 
 The caching service use evcache service. Finally we create some Jmeter loads, simulate some errors in caching layer and monitor the system using Vector.
 
-The infrastructure folder contains the tools requirements, but still missing a db-script with postal data. You can set it up easily on your own, just need little creativity looking at entity objects, creating schema and finally fill it with data. Data is available at https://data.gov.in/catalog/all-india-pincode-directory. Note that this is government data and I do not know if you can use it for any commercial purpose.
+The infrastructure folder contains the tools requirements like EVCache configs and Eureka. Other dependencies like memcache and mysql should be installed separately, though data dump is available in db folder
 
 If I get time later I will add a Docker to wrap everything neatly so that there is not much setup time.
