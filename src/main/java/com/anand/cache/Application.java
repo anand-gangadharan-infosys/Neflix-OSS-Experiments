@@ -17,9 +17,8 @@ import com.anand.pin.client.PinClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableCircuitBreaker
 @EnableHystrixDashboard
-@RestController
+@EnableCircuitBreaker
 public class Application {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
@@ -37,8 +36,4 @@ public class Application {
 	RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
-	@RequestMapping("/monitor")
- 	public String home() {
- 		return "forward:/hystrix";
- 	}
 }

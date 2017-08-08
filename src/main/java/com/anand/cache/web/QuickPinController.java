@@ -43,7 +43,6 @@ public class QuickPinController {
 
 	}
 	
-	@HystrixCommand(fallbackMethod="fetchDummyPostalLocation")
 	private PostalLocation fetchFromDB(String pinCode) {
 		System.out.println("Cache miss");
 		PostalLocation location = pinClient.getPinCode(pinCode);
@@ -51,13 +50,6 @@ public class QuickPinController {
 			saveToCache(pinCode, location);
 		}
 		return pinClient.getPinCode(pinCode);
-	}
-	
-	@SuppressWarnings("unused")
-	private PostalLocation fetchDummyPostalLocation(String pinCode) {
-		PostalLocation loc = new PostalLocation();
-		loc.setPincode(pinCode);
-		return loc;
 	}
 	
 
