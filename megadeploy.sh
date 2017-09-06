@@ -4,6 +4,7 @@ function buildApp(){
   project=$1
   gradle -p $project clean build
 }
+
 function startApp(){
   project=$1
   app=$2
@@ -11,6 +12,7 @@ function startApp(){
   buildApp  $project
   java -jar $project/build/libs/$app-$version.jar >> logs/$app.log 2>>logs/$app.log &
 }
+
 function killprocesslisteningon(){
   port=$1
   jar=$2
