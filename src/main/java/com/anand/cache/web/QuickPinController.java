@@ -16,9 +16,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.netflix.evcache.EVCacheException;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
-@EnableCircuitBreaker
 @RestController
 public class QuickPinController {
 
@@ -45,7 +43,6 @@ public class QuickPinController {
 
 	}
 	
-	@HystrixCommand(fallbackMethod="fetchDummyPostalLocation")
 	private PostalLocation fetchFromDB(String pinCode) {
 		System.out.println("Cache miss");
 		PostalLocation location = pinClient.getPinCode(pinCode);
@@ -53,13 +50,6 @@ public class QuickPinController {
 			saveToCache(pinCode, location);
 		}
 		return pinClient.getPinCode(pinCode);
-	}
-	
-	@SuppressWarnings("unused")
-	private PostalLocation fetchDummyPostalLocation(String pinCode) {
-		PostalLocation loc = new PostalLocation();
-		loc.setPincode(pinCode);
-		return loc;
 	}
 	
 

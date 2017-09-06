@@ -24,12 +24,12 @@
 		<link>
 			<name>cache</name>
 			<type>2</type>
-			<location>/Users/anand_gangadharan/git/netflix-ms/src/main/resources/cache</location>
+			<location>/Users/jince.varghese/jince/codebase/practice/Neflix-OSS-Experiments/src/main/resources/cache</location>
 		</link>
 		<link>
 			<name>java</name>
 			<type>2</type>
-			<location>/Users/anand_gangadharan/git/netflix-ms/src/main/java</location>
+			<location>/Users/jince.varghese/jince/codebase/practice/Neflix-OSS-Experiments/src/main/java</location>
 		</link>
 	</linkedResources>
 </projectDescription>

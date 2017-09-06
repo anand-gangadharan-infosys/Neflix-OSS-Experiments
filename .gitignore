@@ -1,6 +1,14 @@
+
 logs
 bin
 build
 .gradle
 src/.gradle
 deploy/hello-service-0.1.0.jar
+services/com/anand/cache/.project
+services/com/anand/cache/.settings/org.eclipse.buildship.core.prefs
+services/com/anand/client/.classpath
+services/com/anand/client/.project
+services/com/anand/client/.settings/org.eclipse.buildship.core.prefs
+services/com/anand/pin/.project
+services/com/anand/pin/.settings/org.eclipse.buildship.core.prefs
