@@ -12,20 +12,8 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
-sourceSets {
-  main{
-    java{
-	srcDirs = ['../../../../src/main/java'] 
-	include '**/'+serviceName+'/**/*'   
-    }
-    resources {
-        srcDirs = ['../../../../src/main/resources/'+serviceName]
-    }	
-  }
-}
-
 jar {
-    baseName = serviceName
+    baseName = 'hystrix-monitoring'
     version =  '0.1.0'
 }
 
@@ -36,7 +24,14 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+dependencyManagement {
+	imports {
+		mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Camden.SR6'
+	}
+}
+
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-   
+    compile('org.springframework.cloud:spring-cloud-starter-eureka')
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile('org.springframework.cloud:spring-cloud-netflix-hystrix-dashboard')
 }

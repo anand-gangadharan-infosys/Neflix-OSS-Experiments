@@ -35,6 +35,9 @@ function start(){
   source infrastructure/ev-deploy-descriptor.sh
   startApp 'infrastructure/eureka' 'eureka' '0.1.0'
   sleep 11
+  startApp 'infrastructure/gateway' 'gateway' '0.1.0'
+  startApp 'infrastructure/turbine-stream' 'turbine-stream' '0.1.0'
+  startApp 'infrastructure/hystrix-monitoring' 'hystrix-monitoring' '0.1.0'
   startApp 'services/com/anand/pin' 'pin' '0.1.0'
   startApp 'services/com/anand/cache' 'cache' '0.1.0'
   echo 'Service Started'sort
@@ -43,6 +46,9 @@ function start(){
 function stop(){
   killprocesslisteningon 8080 'pin-0.1.0.jar'
   killprocesslisteningon 8081 'cache-0.1.0.jar'
+  killprocesslisteningon 8082 'hystrix-monitoring-0.1.0.jar'
+  killprocesslisteningon 8083 'turbine-stream-0.1.0.jar'
+  killprocesslisteningon 8765 'gateway-0.1.0.jar'
   killprocesslisteningon 8761 'eureka-0.1.0.jar'
   echo 'Service Stoped'
 }

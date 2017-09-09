@@ -26,7 +26,7 @@ public class QuickPinController {
 	@Autowired
 	private PinClient pinClient;
 
-	@RequestMapping(method = RequestMethod.GET, value = "/cache/postal/search")
+	@RequestMapping(method = RequestMethod.GET, value = "/postal/search")
 	public PostalLocation getPinLocation(@RequestParam(value = "pin", defaultValue = "000000") String pinCode)
 			throws EVCacheException, JsonParseException, JsonMappingException, IOException {
 

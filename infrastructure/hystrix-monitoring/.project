@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>client</name>
-	<comment>Project client created by Buildship.</comment>
+	<name>hystrix-monitoring</name>
+	<comment>Project hystrix-monitoring created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -20,16 +20,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>client</name>
-			<type>2</type>
-			<location>/Users/anand_gangadharan/git/netflix-ms/src/main/resources/client</location>
-		</link>
-		<link>
-			<name>java</name>
-			<type>2</type>
-			<location>/Users/jince.varghese/jince/codebase/practice/Neflix-OSS-Experiments/src/main/java</location>
-		</link>
-	</linkedResources>
 </projectDescription>

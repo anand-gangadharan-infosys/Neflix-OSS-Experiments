@@ -1,0 +1,25 @@
+server:
+  port: ${PORT:8083}
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: false
+
+spring:
+  rabbitmq:
+    address: localhost:5672
+    username: test
+    password: test
+    
+turbine:
+  aggregator:
+    clusterConfig: turbine-stream
+  appConfig: turbine-stream
+  clusterNameExpression: new String('default')
+  InstanceMonitor:
+    eventStream:
+      skipLineLogic:
+        enabled: false
