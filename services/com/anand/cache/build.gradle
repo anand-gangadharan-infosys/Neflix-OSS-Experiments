@@ -18,7 +18,6 @@ sourceSets {
 		srcDirs = ['../../../../src/main/java']
 		include '**/'+serviceName+'/**/*'
 		include '**/common/**/*'
-		include '**/pin/client/**/*'
     }
     resources {
         srcDirs = ['../../../../src/main/resources/'+serviceName]
@@ -57,6 +56,7 @@ dependencies {
 
   //Histrix
   compile('org.springframework.cloud:spring-cloud-starter-hystrix')
+  compile('org.springframework.cloud:spring-cloud-starter-feign')
   testCompile('org.springframework.boot:spring-boot-starter-test')
   testCompile('org.springframework.cloud:spring-cloud-starter-eureka-server')
 
