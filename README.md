@@ -19,11 +19,11 @@ The client gateway has been implemented and it will be the primary reach point f
 
 the change in api call is something like this
 
-http://localhost:8765/api/cache/postal/search?pin=686632
+http://localhost:8765/api/cache/postal/search/686632
 
 which will access cache service and,
 
-http://localhost:8765/api/pin/persist/postal/search?pin=686612
+http://localhost:8765/api/pin/persist/postal/search/686612
 
 which will access the pin service
 
