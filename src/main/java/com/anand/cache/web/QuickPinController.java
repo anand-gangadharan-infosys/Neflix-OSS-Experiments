@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.anand.cache.client.PinClient;
+
 import com.anand.cache.domain.CacheMissException;
 import com.anand.cache.domain.EVCachePostOffice;
 import com.anand.common.model.PostalLocation;
+import com.anand.pin.client.PinClient;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.netflix.evcache.EVCacheException;
