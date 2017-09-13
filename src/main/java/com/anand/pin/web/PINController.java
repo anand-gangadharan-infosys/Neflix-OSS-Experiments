@@ -21,7 +21,7 @@ public class PINController {
 		if(poLocation == null){
 			throw new Exception("Location details missing");
 		}
-		return poRepo.findByPincode(pinCode);
+		return poLocation;
 
 	}
 

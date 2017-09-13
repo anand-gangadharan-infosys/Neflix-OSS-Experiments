@@ -12,12 +12,9 @@ import com.anand.common.model.PostalLocation;
 @FeignClient(name="pin",fallback = PinClientFallback.class)
 public interface PinClient {
 
-	
 	@RequestMapping(method = RequestMethod.GET, value = "/persist/postal/search/{pin}")
 	public PostalLocation getPinCode(@PathVariable("pin") String pin);
 	
-	
-
 }
 
 @Component

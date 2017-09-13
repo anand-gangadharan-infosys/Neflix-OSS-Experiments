@@ -46,10 +46,10 @@ public class QuickPinController {
 	private PostalLocation fetchFromDB(String pinCode) {
 		System.out.println("Cache miss");
 		PostalLocation location = pinClient.getPinCode(pinCode);
-		if (location != null) {
+		if (location != null && location.getPostOfficeName()!= null) {
 			saveToCache(pinCode, location);
 		}
-		return pinClient.getPinCode(pinCode);
+		return location;
 	}
 	
 

@@ -24,7 +24,7 @@
 		<link>
 			<name>java</name>
 			<type>2</type>
-			<location>/Users/jince.varghese/jince/codebase/practice/Neflix-OSS-Experiments/src/main/java</location>
+			<location>/Users/anand_gangadharan/git/netflix-ms/src/main/java</location>
 		</link>
 		<link>
 			<name>main</name>
@@ -32,9 +32,9 @@
 			<location>/Users/anand_gangadharan/git/netflix-ms/src/main</location>
 		</link>
 		<link>
-			<name>pin</name>
+			<name>resources</name>
 			<type>2</type>
-			<location>/Users/jince.varghese/jince/codebase/practice/Neflix-OSS-Experiments/src/main/resources/pin</location>
+			<location>/Users/anand_gangadharan/git/netflix-ms/src/main/resources/pin/resources</location>
 		</link>
 	</linkedResources>
 </projectDescription>

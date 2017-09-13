@@ -20,7 +20,7 @@ sourceSets {
 	include '**/common/**/*'    
     }
     resources {
-        srcDirs = ['../../../../src/main/resources/'+serviceName]
+        srcDirs = ['../../../../src/main/resources/'+serviceName+'/resources']
     }	
   }
 }
