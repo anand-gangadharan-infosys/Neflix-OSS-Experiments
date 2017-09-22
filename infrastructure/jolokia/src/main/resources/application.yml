@@ -1,0 +1,30 @@
+server:
+  port: ${PORT:8765}
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: false
+  
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  prefix: /api
+  routes:
+    cache: 
+      path: /cache/**
+      serviceId: cache
+    pin: 
+      path: /pin/**
+      serviceId: pin
+
+ribbon:
+  eureka:
+    enabled: true
