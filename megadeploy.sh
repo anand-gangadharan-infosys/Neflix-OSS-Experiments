@@ -49,7 +49,7 @@ function stop(){
   killprocesslisteningon 8080 'pin-0.1.0.jar'
   killprocesslisteningon 8081 'cache-0.1.0.jar'
   killprocesslisteningon 8082 'hystrix-monitoring-0.1.0.jar'
-  killprocesslisteningon 8083 'turbine-stream-0.1.0.jar'
+  killprocesslisteningon 8766 'turbine-stream-0.1.0.jar'
   killprocesslisteningon 8765 'gateway-0.1.0.jar'
   killprocesslisteningon 8761 'eureka-0.1.0.jar'
   echo 'Service Stoped'
