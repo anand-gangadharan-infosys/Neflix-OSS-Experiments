@@ -52,7 +52,7 @@ function stop(){
   killprocesslisteningon 8766 'turbine-stream-0.1.0.jar'
   killprocesslisteningon 8765 'gateway-0.1.0.jar'
   killprocesslisteningon 8761 'eureka-0.1.0.jar'
-  echo 'Service Stoped'
+  echo 'Service Stoped.'
 }
 #------------------------------------------------------------------------------#
 ##Start of Script
