@@ -164,7 +164,7 @@ build)
   fi
   ;;
 *)
-  echo $"Usage: $0 {start|stop|restart}"
+  echo $"Usage: $0 {start|stop|restart|build}{all|target_application_name}"
   ;;
 esac
 
