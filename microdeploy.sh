@@ -35,23 +35,23 @@ function killprocesslisteningon(){
 
 function start(){
   source infrastructure/ev-deploy-descriptor.sh
-  startApp 'infrastructure/eureka' 'eureka' '0.1.0'
+  startApp ${PROJECT_LOCATION_MAP['eureka']} 'eureka' '0.1.0'
   sleep 11
-  startApp 'infrastructure/gateway' 'gateway' '0.1.0'
-  startApp 'infrastructure/turbine-stream' 'turbine-stream' '0.1.0'
-  startApp 'infrastructure/hystrix-monitoring' 'hystrix-monitoring' '0.1.0'
-  startApp 'services/com/anand/pin' 'pin' '0.1.0'
-  startApp 'services/com/anand/cache' 'cache' '0.1.0'
-  echo 'Service Started'sort
+  startApp ${PROJECT_LOCATION_MAP['gateway']} 'gateway' '0.1.0'
+  startApp ${PROJECT_LOCATION_MAP['turbine-stream']} 'turbine-stream' '0.1.0'
+  startApp ${PROJECT_LOCATION_MAP['hystrix-monitoring']} 'hystrix-monitoring' '0.1.0'
+  startApp ${PROJECT_LOCATION_MAP['pin']} 'pin' '0.1.0'
+  startApp ${PROJECT_LOCATION_MAP['cache']} 'cache' '0.1.0'
+  echo 'Service Started' sort
 }
 
 function stop(){
-  killprocesslisteningon 8080 'pin-0.1.0.jar'
-  killprocesslisteningon 8081 'cache-0.1.0.jar'
-  killprocesslisteningon 8082 'hystrix-monitoring-0.1.0.jar'
-  killprocesslisteningon 8083 'turbine-stream-0.1.0.jar'
-  killprocesslisteningon 8765 'gateway-0.1.0.jar'
-  killprocesslisteningon 8761 'eureka-0.1.0.jar'
+  killprocesslisteningon ${PORT_MAP['pin']} ${JARS_MAP['pin']}
+  killprocesslisteningon ${PORT_MAP['cache']} ${JARS_MAP['cache']}
+  killprocesslisteningon ${PORT_MAP['hystrix-monitoring']} ${JARS_MAP['hystrix-monitoring']}
+  killprocesslisteningon ${PORT_MAP['turbine-stream']} ${JARS_MAP['turbine-stream']}
+  killprocesslisteningon ${PORT_MAP['gateway']} ${JARS_MAP['gateway']}
+  killprocesslisteningon ${PORT_MAP['eureka']} ${JARS_MAP['eureka']}
   echo 'Service Stoped'
 }
 #------------------------------------------------------------------------------#
@@ -72,7 +72,7 @@ declare -A PORT_MAP
 PORT_MAP[pin]=8080
 PORT_MAP[cache]=8081
 PORT_MAP[hystrix-monitoring]=8082
-PORT_MAP[turbine-stream]=8083
+PORT_MAP[turbine-stream]=8766
 PORT_MAP[gateway]=8765
 PORT_MAP[eureka]=8761
 
